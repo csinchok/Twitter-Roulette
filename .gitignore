@@ -23,4 +23,5 @@ dist
 .DS_Store
 .Trash
 var
-twitter-roulette.db
+twitterroulette.db
+social_keys.py
