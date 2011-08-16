@@ -1,0 +1,84 @@
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-bottom: 30px solid black;
+}
+
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 30px solid black;
+}
+
+div#twitter-text-submit{
+	padding-top:20px;
+	padding-left:5px;
+}
+
+div#roulette-text-area-title-text, div#logo, 
+div#twitter-handle, div#twitter-submit-edit, 
+div#twitter-text-submit, div#roulette-text-submitted-text{
+	float: left;
+}
+
+div#roulette-text-submitted-text {
+	width: 80%;
+} 
+
+div#roulette-text-submitted-vote {
+	padding-top:5px;
+	font-size:20px;
+	float:left;
+}
+
+div#twitter-handle { 
+	clear:left;
+}
+
+div#roulette-text-submitted-author{
+	font-size:12px;
+	clear:left;
+	padding-left:60px;
+	padding-top:5px;
+}
+
+div#characters-remaining{
+	float:right;
+	padding-right:30px;
+}
+
+div#main {
+	clear:both;
+}
+
+#roulette-tweet-box-editor{
+	height: 50px;
+	width: 400px;
+	font-size: 24px;
+}
+
+#roulette-text-area-title-text {
+	height: 100px;
+} 
+
+div.roulette-text-submitted { 
+	width: 700px;
+	border-style:solid;
+	border-width:2px;
+	font-size: 24px;
+	height: 100px;
+	float:left;
+} 
+
+div.vote-count{
+	text-align:center;
+}
+
+div.clear{
+	clear:both;
+	padding-top:12px;
+}
