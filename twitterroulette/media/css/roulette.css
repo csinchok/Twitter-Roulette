@@ -12,9 +12,6 @@ header {
     margin-top: 30px;
 }
 
-footer {
-}
-
 div#twitter-text-submit{
     padding-top:20px;
     padding-left:5px;
@@ -115,3 +112,17 @@ div.vote-count{
 /*********************/
 /** END MAIN STYLES **/
 /*********************/
+
+/*************************/
+/** BEGIN FOOTER STYLES **/
+/*************************/
+
+footer {
+    height: 50px;
+}
+
+#counter { width: 240px; height: 45px; }
+
+/***********************/
+/** END FOOTER STYLES **/
+/***********************/

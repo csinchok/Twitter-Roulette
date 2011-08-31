@@ -21,4 +21,4 @@ def home(request, template_name='roulette/home.html'):
                 setattr(bullet, 'voted', 'down')
         else:
             setattr(bullet, 'voted', 'undef')
-    return render_to_response(template_name, {'bullets': bullets}, context_instance=RequestContext(request))
+    return render_to_response(template_name, {'bullets': bullets, 'this_round': this_round}, context_instance=RequestContext(request))
