@@ -1,0 +1,27 @@
+Setup
+--------
+
+Pretty simple:
+
+    > git clone git@github.com:csinchok/Twitter-Roulette.git twitter-roulette
+    > cd twitter-roulette
+    > python2.7 bootstrap.py
+    > bin/buildout
+    > bin/syncdb
+    > bin/buildout
+
+You'll need to add a "social_keys.py" to the "twitterroulette" directory. This file should contain:
+
+TWITTER_CONSUMER_KEY         = 'GET THIS FROM TWITTER'
+TWITTER_CONSUMER_SECRET      = 'GET THIS FROM TWITTER'
+
+Then run your server:
+
+    > bin/django runserver
+
+If you change the model, make sure you make a migration file and migrate:
+
+    > bin/django schemamigration roulette --all
+    > bin/django migrate
+
+That's about it.
