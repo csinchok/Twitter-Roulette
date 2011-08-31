@@ -7,7 +7,7 @@ setup(
     license = 'BSD',
     description = "An app driving a twitter roulette game",
     author = 'Chris Sinchok',
-    packages = find_packages('roulette'),
+    packages = ['roulette','roulette.migrations'],
     package_dir = {'django-twitter-roulette': 'roulette'},
     install_requires = ['setuptools'],
 )

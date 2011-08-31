@@ -109,6 +109,16 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), "templates"),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.contrib.messages.context_processors.messages",
+    "social_auth.context_processors.social_auth_by_type_backends"
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,7 +131,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'roulette'
+    'roulette',
+    'south'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -147,17 +158,18 @@ LOGGING = {
     }
 }
 
-LOGIN_URL          = '/login/'
-LOGIN_REDIRECT_URL = '/logged-in/'
-LOGIN_ERROR_URL    = '/login-error/'
-
-SOCIAL_AUTH_COMPLETE_URL_NAME  = 'complete'
-SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'associate_complete'
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('twitter',)
+
+LOGIN_URL          = '/login-form/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_ERROR_URL    = '/login-error/'
 
 from social_keys import *
 
