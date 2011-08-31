@@ -15,22 +15,6 @@ header {
 footer {
 }
 
-.arrow-up {
-	width: 0;
-	height: 0;
-	border-left: 30px solid transparent;
-	border-right: 30px solid transparent;
-	border-bottom: 30px solid black;
-}
-
-.arrow-down {
-	width: 0;
-	height: 0;
-	border-left: 30px solid transparent;
-	border-right: 30px solid transparent;
-	border-top: 30px solid black;
-}
-
 div#twitter-text-submit{
     padding-top:20px;
     padding-left:5px;
@@ -41,30 +25,23 @@ div#twitter-text-submit, div#roulette-text-submitted-text{
     float: left;
 }
 
-div#roulette-text-submitted-text {
-    width: 80%;
-} 
-
-div#roulette-text-submitted-vote {
-    padding-top:5px;
-    font-size:20px;
-    float:left;
-}
-
 div#twitter-handle { 
     clear:left;
-}
-
-div#roulette-text-submitted-author{
-    font-size:12px;
-    clear:left;
-    padding-left:60px;
-    padding-top:5px;
 }
 
 div#characters-remaining{
     float:right;
     padding-right:30px;
+}
+
+#roulette-tweet-box-editor{
+	height: 50px;
+	width: 400px;
+	font-size: 24px;
+}
+
+#roulette-text-area-title-text {
+	height: 100px;
 }
 
 /***********************/
@@ -78,27 +55,61 @@ div#characters-remaining{
 div#main {
 }
 
-#roulette-tweet-box-editor{
-	height: 50px;
-	width: 400px;
-	font-size: 24px;
+div.roulette-text-submitted-author{
+    font-size:12px;
+    clear:left;
+    padding-left:70px;
+    padding-top:5px;
+    padding-bottom: 10px;
 }
 
-#roulette-text-area-title-text {
-	height: 100px;
+div.roulette-text-submitted-text {
+    width: 80%;
 } 
 
+div.roulette-text-submitted-vote {
+    padding-top:5px;
+    padding-right:10px;
+    font-size:20px;
+    float:left;
+}
+
 div.roulette-text-submitted { 
-	width: 700px;
+	width: 690px;
 	border-style:solid;
 	border-width:2px;
 	font-size: 24px;
-	height: 100px;
+	height: 80px;
 	float:left;
+	padding: 5px;
 } 
 
 div.vote-count{
 	text-align:center;
+}
+
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-bottom: 30px solid black;
+}
+
+.voted-up .arrow-up {
+    border-bottom: 30px solid green;
+}
+
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 30px solid black;
+}
+
+.voted-down .arrow-down {
+    border-top: 30px solid green;
 }
 
 /*********************/

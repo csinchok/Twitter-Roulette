@@ -1,46 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div id="roulette-text-submitted-vote">
-	<div class="arrow-up"></div>
-	<div class="vote-count">0</div>
-	<div class="arrow-down"></div>
-</div>
-<div class="roulette-text-submitted" id="roulette-text-submitted-1">
-	<strong>@someone</strong> is the worst python developer on mars!
-</div>
-<div id="roulette-text-submitted-author">
-<span>submitted by <strong>@chrissinchok</strong></span>
-	<img src="https://twimg0-a.akamaihd.net/profile_images/75223043/n30110906_33349443_2157.jpg" width="20px" height="20px" />
-</div>
 
-<div class="clear" />
-<div id="roulette-text-submitted-vote">
-	<div class="arrow-up"></div>
-	<div class="vote-count">0</div>
-	<div class="arrow-down"></div>
-</div>
-<div class="roulette-text-submitted" id="roulette-text-submitted-1">
-	<strong>@someone</strong> is the worst python developer on mars!
-</div>
-<div id="roulette-text-submitted-author">
-<span>submitted by <strong>@chrissinchok</strong></span>
-<img src="https://twimg0-a.akamaihd.net/profile_images/75223043/n30110906_33349443_2157.jpg" width="20px" height="20px" />
-</div>
-
-<div class="clear" />
-<div id="roulette-text-submitted-vote">
-	<div class="arrow-up"></div>
-	<div class="vote-count">0</div>
-	<div class="arrow-down"></div>
-</div>
-<div class="roulette-text-submitted" id="roulette-text-submitted-1">
-	<strong>@someone</strong> is the worst python developer on mars!
-</div>
-<div id="roulette-text-submitted-author">
-<span>submitted by <strong>@chrissinchok</strong></span>
-<img src="https://twimg0-a.akamaihd.net/profile_images/75223043/n30110906_33349443_2157.jpg" width="20px" height="20px" />
-</div>
-
+{% for bullet in bullets %}
+	<div class="submitted-bullet" rel="{{bullet.id}}">
+		<div class="roulette-text-submitted-vote voted-{{bullet.voted}}">
+			<div class="arrow-up"></div>
+			<div class="vote-count">{{bullet.score}}</div>
+			<div class="arrow-down"></div>
+		</div>
+		<div class="roulette-text-submitted">
+			{{bullet.tweet}}
+		</div>
+		<div class="roulette-text-submitted-author">
+			<span>submitted by <strong>@{{bullet.user.username}}</strong></span>
+			<img src="http://api.twitter.com/1/users/profile_image?screen_name={{bullet.user.username}}&amp;size=mini" width="20px" height="20px" />
+		</div>
+	</div>
+{% endfor %}
 
 {% endblock %}
