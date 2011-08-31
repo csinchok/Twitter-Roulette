@@ -25,6 +25,7 @@
 
   <!-- CSS: implied media="all" -->
   <link rel="stylesheet" href="{{MEDIA_URL}}css/style.css?v=2">
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/960.css">
   <link rel="stylesheet" href="{{MEDIA_URL}}css/roulette.css">
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
@@ -37,15 +38,37 @@
 
 <body>
 
-  <div id="container">
-    <header>
+  <div id="container" class="container_12 prefix_2">
+    <header class="prefix_1 grid_10">
 		{% block header %}
+		<div id="logo" class="grid_4 alpha">
+			<img src="{{MEDIA_URL}}img/5047079965_413128e1d8_o_small.png" alt="twitter roulette" width="300px" height="96px" />
+		</div>
+		{% if user.is_authenticated %}
+		<div id="roulette-text-area-title-text" class="grid_6 omega">
+			<div id="twitter-submit-edit">
+				<h2>Submit Tweet for Twitter Roulette</h2>
+				<textarea id="roulette-tweet-box-editor"></textarea>
+			</div>
+			<div id="twitter-text-submit">
+				<a href="#submit"><img src="{{MEDIA_URL}}img/noun_project_289.png" alt="pull the trigger" height="50px" width="30px" /></a>
+			</div>
+			<div id="twitter-handle">
+				<!-- TODO: needs to be dynamic given the current authed user -->
+				<span id="handle">submitting as <strong>@{{user.username}}</strong> (<a href="/logout">logout</a>)</span>
+				<img src="http://api.twitter.com/1/users/profile_image?screen_name={{user.username}}&amp;size=mini" width="20px" height="20px" />
+			</div>
+			<div id="characters-remaining">140</div>
+		</div>
+		{% else %}
+			<a href="/login/twitter/" class="grid_6 omega"><img id="login-button" src="{{MEDIA_URL}}img/sign-in-with-twitter-l.png" alt="sign in with twitter" /></a>
+		{% endif %}
 		{% endblock %}
     </header>
-    <div id="main" role="main">
+    <div id="main" role="main" class="prefix_1 grid_10">
 		{% block content %}{% endblock %}
     </div>
-    <footer>
+    <footer class="prefix_1 grid_10">
 		{% block footer %}
 		{% endblock %}
     </footer>
@@ -64,6 +87,10 @@
   <script src="{{MEDIA_URL}}js/script.js"></script>
   <!-- end scripts-->
 
+  <!-- begin dajaxice -->
+  {% load dajaxice_templatetags %}
+  {% dajaxice_js_import %}
+  <!-- end dajaxice -->
 
   <!--[if lt IE 7 ]>
     <script src="{{MEDIA_URL}}js/libs/dd_belatedpng.js"></script>

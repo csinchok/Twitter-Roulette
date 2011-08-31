@@ -132,7 +132,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'roulette',
-    'south'
+    'south',
+    'dajaxice'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -173,5 +174,4 @@ LOGIN_ERROR_URL    = '/login-error/'
 
 from social_keys import *
 
-from django.template.defaultfilters import slugify
-SOCIAL_AUTH_USERNAME_FIXER = lambda u: slugify(u)
+DAJAXICE_MEDIA_PREFIX="dajaxice"

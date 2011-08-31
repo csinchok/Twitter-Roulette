@@ -6,8 +6,12 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
+from dajaxice.core import dajaxice_autodiscover
+dajaxice_autodiscover()
+
 urlpatterns = patterns('',
     url(r'', include('social_auth.urls')),
+    (r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
     # Example:
     (r'', include('roulette.urls')),
 

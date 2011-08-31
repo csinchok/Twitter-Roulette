@@ -1,3 +1,20 @@
+/*************************/
+/** BEGIN HEADER STYLES **/
+/*************************/
+
+header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#login-button {
+    margin-left: 80px;
+    margin-top: 30px;
+}
+
+footer {
+}
+
 .arrow-up {
 	width: 0;
 	height: 0;
@@ -15,44 +32,50 @@
 }
 
 div#twitter-text-submit{
-	padding-top:20px;
-	padding-left:5px;
+    padding-top:20px;
+    padding-left:5px;
 }
 
-div#roulette-text-area-title-text, div#logo, 
-div#twitter-handle, div#twitter-submit-edit, 
+ div#twitter-handle, div#twitter-submit-edit, 
 div#twitter-text-submit, div#roulette-text-submitted-text{
-	float: left;
+    float: left;
 }
 
 div#roulette-text-submitted-text {
-	width: 80%;
+    width: 80%;
 } 
 
 div#roulette-text-submitted-vote {
-	padding-top:5px;
-	font-size:20px;
-	float:left;
+    padding-top:5px;
+    font-size:20px;
+    float:left;
 }
 
 div#twitter-handle { 
-	clear:left;
+    clear:left;
 }
 
 div#roulette-text-submitted-author{
-	font-size:12px;
-	clear:left;
-	padding-left:60px;
-	padding-top:5px;
+    font-size:12px;
+    clear:left;
+    padding-left:60px;
+    padding-top:5px;
 }
 
 div#characters-remaining{
-	float:right;
-	padding-right:30px;
+    float:right;
+    padding-right:30px;
 }
 
+/***********************/
+/** END HEADER STYLES **/
+/***********************/
+
+/***********************/
+/** BEGIN MAIN STYLES **/
+/***********************/
+
 div#main {
-	clear:both;
 }
 
 #roulette-tweet-box-editor{
@@ -78,7 +101,6 @@ div.vote-count{
 	text-align:center;
 }
 
-div.clear{
-	clear:both;
-	padding-top:12px;
-}
+/*********************/
+/** END MAIN STYLES **/
+/*********************/

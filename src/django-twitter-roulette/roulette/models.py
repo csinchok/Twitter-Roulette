@@ -14,7 +14,7 @@ class Round(models.Model):
         pass
 
     def __unicode__(self):
-        return u"Round ending: %s" % round_end
+        return u"Round ending: %s" % self.round_end
 
 
 class Bullet(models.Model):

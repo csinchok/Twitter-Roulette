@@ -1,31 +1,6 @@
 {% extends 'base.html' %}
 
-{% block header %}
-<div class="clear" />
-<div id="logo">
-<img src="{{MEDIA_URL}}img/5047079965_413128e1d8_o_small.png" alt="twitter roulette" width="300px" height="96px" />
-</div>
-<div id="roulette-text-area-title-text">
-	<div id="twitter-submit-edit">
-		<h2>Submit Tweet for Twitter Roulette</h2>
-		<textarea id="roulette-tweet-box-editor"></textarea>
-	</div>
-	<div id="twitter-text-submit">
-		<img src="{{MEDIA_URL}}img/noun_project_289.png" alt="pull the trigger" height="50px" width="30px" />
-	</div>
-	<div id="twitter-handle">
-		<!-- TODO: needs to be dynamic given the current authed user -->
-		<span id="handle">submitting as <strong>@{{user.username}}</strong></span>
-		<img src="https://twimg0-a.akamaihd.net/profile_images/1319704778/DSCN4216_cropped_normal.JPG" width="20px" height="20px" />
-	</div>
-	<div id="characters-remaining">140</div>
-	
-</div>
-
-{% endblock %}
-
 {% block content %}
-<div class="clear" />
 <div id="roulette-text-submitted-vote">
 	<div class="arrow-up"></div>
 	<div class="vote-count">0</div>
@@ -36,7 +11,7 @@
 </div>
 <div id="roulette-text-submitted-author">
 <span>submitted by <strong>@chrissinchok</strong></span>
-<img src="https://twimg0-a.akamaihd.net/profile_images/75223043/n30110906_33349443_2157.jpg" width="20px" height="20px" />
+	<img src="https://twimg0-a.akamaihd.net/profile_images/75223043/n30110906_33349443_2157.jpg" width="20px" height="20px" />
 </div>
 
 <div class="clear" />
