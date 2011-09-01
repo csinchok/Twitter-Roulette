@@ -3,14 +3,15 @@ Setup
 
 Pretty simple:
 
-    > git clone git@github.com:csinchok/Twitter-Roulette.git twitter-roulette
-    > cd twitter-roulette
-    > python2.7 bootstrap.py
-    > bin/buildout
-    > bin/syncdb
-    > bin/buildout
+    > git clone https://github.com/csinchok/Twitter-Roulette.git
+    > cd Twitter-Roulette
+    > python2.7 bootstrap.py 
+    > bin/buildout 
+    > touch twitterroulette/social_keys.py
+    > bin/django syncdb
+    > bin/django migrate
 
-You'll need to add a "social_keys.py" to the "twitterroulette" directory. This file should contain:
+"social_keys.py" should contain:
 
 TWITTER_CONSUMER_KEY         = 'GET THIS FROM TWITTER'
 TWITTER_CONSUMER_SECRET      = 'GET THIS FROM TWITTER'
