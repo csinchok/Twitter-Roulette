@@ -43,7 +43,9 @@
     <header class="prefix_1 grid_10">
 		{% block header %}
 		<div id="logo" class="grid_4 alpha">
+			{% if not ishome %}<a href="/">{% endif %}
 			<img src="{{MEDIA_URL}}img/5047079965_413128e1d8_o_small.png" alt="twitter roulette" width="300px" height="96px" />
+			{% if not ishome %}</a>{% endif %}
 		</div>
 		{% if user.is_authenticated %}
 		<div id="roulette-text-area-title-text" class="grid_6 omega">
@@ -66,6 +68,9 @@
 		{% endif %}
 		{% endblock %}
     </header>
+     <div id="error" role="error" class="prefix_1 grid_10">
+		{% block error %}{% endblock %}
+    </div>
     <div id="main" role="main" class="prefix_1 grid_10">
 		{% block content %}{% endblock %}
     </div>
@@ -95,8 +100,12 @@
 
   <script type="text/javascript" src="{{MEDIA_URL}}js/mylibs/jquery.countdown/jquery.countdown.js"></script>
 
-  <script>
-	$('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
+  <script type="text/javascript">
+  	$(document).ready(function() {
+		setTimeout("$('div.error').fadeOut('slow');",4000);
+		$('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
+	});
+	
   </script>
 
   <!--[if lt IE 7 ]>
