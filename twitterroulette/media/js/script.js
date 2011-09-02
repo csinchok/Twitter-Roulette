@@ -36,7 +36,8 @@ function latest_fucked(bullets){
 		cloned.removeClass("template");
 		cloned.attr("rel",ohOkayIndex.pk);
 		
-		cloned.children(".roulette-text-submitted-vote").addClass("voted-" + "TBD");
+		cloned.children(".roulette-text-submitted-vote").addClass("voted-" + ohOkayIndex.score);
+		cloned.children(".roulette-text-submitted-vote:nth-child(2)").html(ohOkayIndex.score);
 		var firstSpan = cloned.children(":nth-child(3)").children(":first-child");
 		firstSpan.html("submitted by <strong>@" + ohOkayIndex.user +"</strong>");
 		

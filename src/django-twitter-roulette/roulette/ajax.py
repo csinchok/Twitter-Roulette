@@ -17,7 +17,7 @@ def getfucked_latest_from(request,from_id=None):
 			
 			realBullets = []
 			for bullet in bullets:
-				realBullets.append({ 'pk':bullet.id, 'user': bullet.user.username, 'tweet': bullet.tweet})
+				realBullets.append({ 'pk':bullet.id, 'user': bullet.user.username, 'tweet': bullet.tweet, 'score': bullet.score() })
 			data = simplejson.dumps(realBullets)
 			
 			return data
