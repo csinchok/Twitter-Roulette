@@ -14,7 +14,12 @@ def getfucked_latest_from(request,from_id=None):
 			if from_id == None: 
 				from_id=0
 			bullets = Bullet.objects.filter(roulette_round=this_round).filter(id__gt=from_id).order_by("-date_submitted")[:10]
-			data = serializers.serialize("json", bullets)
+			
+			realBullets = []
+			for bullet in bullets:
+				realBullets.append({ 'pk':bullet.id, 'user': bullet.user.username, 'tweet': bullet.tweet})
+			data = simplejson.dumps(realBullets)
+			
 			return data
     except Exception as e:
     	print(e)

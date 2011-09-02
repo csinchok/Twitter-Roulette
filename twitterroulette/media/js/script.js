@@ -36,12 +36,14 @@ function latest_fucked(bullets){
 		cloned.attr("rel",ohOkayIndex.pk);
 		
 		cloned.children(".roulette-text-submitted-vote").addClass("voted-" + "TBD");
-		cloned.children(".roulette-text-submitted-author > span").html("submitted by <strong>@" + ohOkayIndex.fields.user +"</strong>");
-		var img = cloned.children(".roulette-text-submitted-author > img");
-		img.attr("src",img.attr("tmp") + "screen_name=" + ohOkayIndex.fields.user);
-		img.attr("tmp","");
+		var firstSpan = cloned.children(":nth-child(3)").children(":first-child");
+		firstSpan.html("submitted by <strong>@" + ohOkayIndex.user +"</strong>");
 		
+		var secondImg = cloned.children(":nth-child(3)").children(":nth-child(2)");
+		secondImg.attr("src",secondImg.attr("tmp") + "&screen_name=" + ohOkayIndex.user);
+		secondImg.attr("tmp","");
 		cloned.appendTo(appendTo);
+		
 		cloned.show();
 	}
 }
