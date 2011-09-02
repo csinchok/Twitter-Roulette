@@ -37,17 +37,24 @@ function latest_fucked(bullets){
 		cloned.attr("rel",ohOkayIndex.pk);
 		
 		cloned.children(".roulette-text-submitted-vote").addClass("voted-" + ohOkayIndex.score);
-		cloned.children(".roulette-text-submitted-vote:nth-child(2)").html(ohOkayIndex.score);
+		
+		// add the vote between the arrows
+		var vodeSection = cloned.children(".roulette-text-submitted-vote").children(":nth-child(2)");
+		vodeSection.html(ohOkayIndex.score);
+		
+		// add the usser name in the span
 		var firstSpan = cloned.children(":nth-child(3)").children(":first-child");
 		firstSpan.html("submitted by <strong>@" + ohOkayIndex.user +"</strong>");
 		
+		// update the image with the user name
 		var secondImg = cloned.children(":nth-child(3)").children(":nth-child(2)");
 		secondImg.attr("src",secondImg.attr("tmp") + "&screen_name=" + ohOkayIndex.user);
 		secondImg.attr("tmp","");
-		cloned.appendTo(appendTo);
-		
+
+		// add the tweet text
 		cloned.children(".roulette-text-submitted").html(ohOkayIndex.tweet);
 		
+		cloned.appendTo(appendTo);
 		cloned.show();
 	}
 }
