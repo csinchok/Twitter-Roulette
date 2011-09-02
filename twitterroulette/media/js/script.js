@@ -32,6 +32,7 @@ function latest_fucked(bullets){
 	for( bullet in bullets){
 		var ohOkayIndex = bullets[bullet];
 		var cloned = cloned_element.clone();
+		
 		cloned.removeClass("template");
 		cloned.attr("rel",ohOkayIndex.pk);
 		
@@ -43,6 +44,8 @@ function latest_fucked(bullets){
 		secondImg.attr("src",secondImg.attr("tmp") + "&screen_name=" + ohOkayIndex.user);
 		secondImg.attr("tmp","");
 		cloned.appendTo(appendTo);
+		
+		cloned.children(".roulette-text-submitted").html(ohOkayIndex.tweet);
 		
 		cloned.show();
 	}
