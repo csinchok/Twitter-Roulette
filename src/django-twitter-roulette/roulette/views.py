@@ -11,7 +11,8 @@ def logout_view(request, template_name='roulette/logout.html'):
     return render_to_response(template_name, {'this_round': this_round}, context_instance=RequestContext(request))
 
 def home(request, template_name='roulette/home.html'):
-    return render_to_response(template_name, {'ishome': True}, context_instance=RequestContext(request))
+    this_round = Round.objects.filter(round_end__gte=datetime.datetime.now())[0]
+    return render_to_response(template_name, {'ishome': True, 'this_round': this_round}, context_instance=RequestContext(request))
     
 def login_error_view(request,template_name='roulette/login-error.html'):
 	this_round = Round.objects.filter(round_end__gte=datetime.datetime.now())[0]

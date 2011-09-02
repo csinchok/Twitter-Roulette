@@ -100,8 +100,8 @@
 
   <script type="text/javascript" src="{{MEDIA_URL}}js/mylibs/jquery.countdown/jquery.countdown.js"></script>
 
-  <script type="text/javascript">
-  $(document).ready(function() { });
+  <script>
+  $('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
   </script>
 
   <!--[if lt IE 7 ]>
