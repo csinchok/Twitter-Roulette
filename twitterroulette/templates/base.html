@@ -60,6 +60,8 @@
 				<!-- TODO: needs to be dynamic given the current authed user -->
 				<span id="handle">submitting as <strong>@{{user.username}}</strong> (<a href="/logout">logout</a>)</span>
 				<img src="http://api.twitter.com/1/users/profile_image?screen_name={{user.username}}&amp;size=mini" width="20px" height="20px" />
+                <div id="luck">You've got to ask yourself one question: Do I feel lucky? Well, do ya... punk?<br/>
+                <span>{% if luck == 1 %}Sort of... my luck is{% else %}{% if luck < 1 %}No. My luck is{% else %}Yes! My luck is{% endif %}{% endif %} {{luck}}.</span>
 			</div>
 			<div id="characters-remaining">140</div>
 		</div>

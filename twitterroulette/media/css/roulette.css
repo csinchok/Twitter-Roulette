@@ -26,6 +26,15 @@ div#twitter-handle {
     clear:left;
 }
 
+div#luck {
+    font-size: smaller;
+    font-style: italic;
+}
+
+div#luck span {
+    font-weight: bold;
+}
+
 div#characters-remaining{
     float:right;
     padding-right:30px;
