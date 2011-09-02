@@ -10,11 +10,11 @@ def getfucked_latest_from(request,from_id=None):
 		this_round = Round.objects.filter(round_end__gte=datetime.datetime.now())[0]
 		if from_id == None: 
 			from_id=0
-		bullets = Bullet.objects.filter(roulette_round=this_round).filter(id__gt=from_id).order_by("-date_submitted")[:10]
+		bullets = Bullet.objects.filter(roulette_round=this_round).filter(id__gt=from_id).order_by("-date_submitted").reverse()[:10]
 		
 		realBullets = []
 		for bullet in bullets:
-			realBullets.append({ 'pk':bullet.id, 'user': bullet.user.username, 'tweet': bullet.tweet, 'score': bullet.score() })
+			realBullets.append({ 'pk':bullet.id, 'user': bullet.user.username, 'tweet': bullet.tweet, 'score': bullet.score(), 'date_submitted': bullet.date_submitted.ctime() })
 		data = simplejson.dumps(realBullets)
 		
 		return data

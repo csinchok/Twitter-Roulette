@@ -46,7 +46,7 @@ function latest_fucked(bullets){
 		
 		// add the usser name in the span
 		var firstSpan = cloned.children(":nth-child(3)").children(":first-child");
-		firstSpan.html("submitted by <strong>@" + ohOkayIndex.user +"</strong>");
+		firstSpan.html("submitted by <strong>@" + ohOkayIndex.user +"</strong> on " + ohOkayIndex.date_submitted);
 		
 		// update the image with the user name
 		var secondImg = cloned.children(":nth-child(3)").children(":nth-child(2)");
