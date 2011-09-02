@@ -25,7 +25,9 @@ function voted(data) {
 }
 
 function latest_fucked(bullets){
-	console.log(bullets);
+	if(bullets.error != undefined){
+		return false;
+	}
 	var cloned_element = $('.submitted-bullet:hidden');
 	var appendTo = $("#main");
 	var bullet = undefined;
@@ -88,6 +90,9 @@ $(document).ready(function(){
       Dajaxice.roulette.vote(voted, {'bullet_id': bullet_id, 'value': -1});
   });
   
+  // fade out the error container if it exists
   setTimeout("$('div.error').fadeOut('slow');",4000);
+  // fade in the new elements
+  //setInterval("Dajaxice.roulette.getfucked_latest_from(latest_fucked,{'from_id' : 0});",10000);
   
 });
