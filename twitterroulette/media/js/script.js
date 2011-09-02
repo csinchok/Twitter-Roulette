@@ -54,8 +54,8 @@ function latest_fucked(bullets){
 		// add the tweet text
 		cloned.children(".roulette-text-submitted").html(ohOkayIndex.tweet);
 		
-		cloned.appendTo(appendTo);
-		cloned.show();
+		cloned.prependTo(appendTo);
+		cloned.fadeIn('slow');
 	}
 }
 
@@ -78,17 +78,16 @@ $(document).ready(function(){
       return false;
   });
   
-  $('.arrow-up').click(function() {
+  $('.arrow-up').live('click',function() {
       var bullet_id = $(this).parent('div.roulette-text-submitted-vote').parent('div.submitted-bullet').attr('rel');
       Dajaxice.roulette.vote(voted, {'bullet_id': bullet_id, 'value': 1});
   });
   
-  $('.arrow-down').click(function() {
+  $('.arrow-down').live('click',function() {
       var bullet_id = $(this).parent('div.roulette-text-submitted-vote').parent('div.submitted-bullet').attr('rel');
       Dajaxice.roulette.vote(voted, {'bullet_id': bullet_id, 'value': -1});
   });
   
   setTimeout("$('div.error').fadeOut('slow');",4000);
-  $('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
   
 });
