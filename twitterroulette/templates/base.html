@@ -34,6 +34,11 @@
 
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
   <script src="{{MEDIA_URL}}js/libs/modernizr-1.7.min.js"></script>
+  
+  <!-- begin dajaxice -->
+  {% load dajaxice_templatetags %}
+  {% dajaxice_js_import %}
+  <!-- end dajaxice -->
 
 </head>
 
@@ -92,11 +97,6 @@
   <script src="{{MEDIA_URL}}js/plugins.js"></script>
   <script src="{{MEDIA_URL}}js/script.js"></script>
   <!-- end scripts-->
-
-  <!-- begin dajaxice -->
-  {% load dajaxice_templatetags %}
-  {% dajaxice_js_import %}
-  <!-- end dajaxice -->
 
   <script type="text/javascript" src="{{MEDIA_URL}}js/mylibs/jquery.countdown/jquery.countdown.js"></script>
 
