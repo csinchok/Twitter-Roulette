@@ -12,8 +12,12 @@ def logout_view(request, template_name='roulette/logout.html'):
 
 def home(request, template_name='roulette/home.html'):
     this_round = Round.objects.filter(round_end__gte=datetime.datetime.now())[0]
-    return render_to_response(template_name, {'ishome': True, 'this_round': this_round}, context_instance=RequestContext(request))
-    
+    if (request.user.is_authenticated()):
+        luck = Player.objects.get(pk=request.user.pk).luck_of_the_draw
+    else:
+        luck = None
+    return render_to_response(template_name, {'ishome': True, 'this_round': this_round, 'luck': luck}, context_instance=RequestContext(request))
+
 def login_error_view(request,template_name='roulette/login-error.html'):
 	this_round = Round.objects.filter(round_end__gte=datetime.datetime.now())[0]
 	return render_to_response(template_name, {'this_round': this_round}, context_instance=RequestContext(request))
