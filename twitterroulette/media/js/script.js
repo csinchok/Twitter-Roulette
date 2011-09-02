@@ -1,6 +1,5 @@
-/* Author: Chris Sinchok
 
-*/
+var last_max_fucked = 0;
 
 function tweet_submitted(data) {
     if('error' in data) {
@@ -58,6 +57,8 @@ function latest_fucked(bullets){
 		
 		cloned.prependTo(appendTo);
 		cloned.fadeIn('slow');
+		
+		if (ohOkayIndex.pk > last_max_fucked) { last_max_fucked = ohOkayIndex.pk; }
 	}
 }
 
@@ -93,6 +94,6 @@ $(document).ready(function(){
   // fade out the error container if it exists
   setTimeout("$('div.error').fadeOut('slow');",4000);
   // fade in the new elements
-  //setInterval("Dajaxice.roulette.getfucked_latest_from(latest_fucked,{'from_id' : 0});",10000);
+  setInterval("Dajaxice.roulette.getfucked_latest_from(latest_fucked,{'from_id' : last_max_fucked});",10000);
   
 });
