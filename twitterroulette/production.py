@@ -11,5 +11,7 @@ DATABASES = {
     }
 }
 
+ADMIN_MEDIA_PREFIX = '/admin_media/'
+
 DEBUG=False
 TEMPLATE_DEBUG=DEBUG
