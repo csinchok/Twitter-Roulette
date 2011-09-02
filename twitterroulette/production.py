@@ -10,3 +10,7 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+DEBUG=False
+TEMPLATE_DEBUG=DEBUG
+TWIBBOTS_DEBUG=DEBUG
