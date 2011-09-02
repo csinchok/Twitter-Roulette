@@ -19,9 +19,9 @@ def prepare_deploy():
 def deploy_prod_code():
     prepare_deploy()
     
+    put('twitterroulette/social_keys.py', '/home/csinchok/social_roulette/twitterroulette')
     put('social_roulette.zip', '/home/csinchok/')
     run('unzip -o /home/csinchok/social_roulette.zip -d %s' % webapp_path)
-    put('twitterroulette/social_keys.py', '/home/csinchok/social_roulette/twitterroulette')
     
     with cd(webapp_path):
         run('touch bin/django.wsgi')
@@ -32,7 +32,8 @@ def deploy_prod_code():
 def deploy_prod():
     prepare_deploy()
     
-    put('social_roulette.zip', '/home/csinchok/')
+    put('twitterroulette/social_keys.py', '/home/csinchok/social_roulette/twitterroulette')
+    put('./social_roulette.zip', '/home/csinchok/')
     run('unzip -o /home/csinchok/social_roulette.zip -d %s' % webapp_path)
     
     with cd(webapp_path):
