@@ -101,11 +101,7 @@
   <script type="text/javascript" src="{{MEDIA_URL}}js/mylibs/jquery.countdown/jquery.countdown.js"></script>
 
   <script type="text/javascript">
-  	$(document).ready(function() {
-		setTimeout("$('div.error').fadeOut('slow');",4000);
-		$('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
-	});
-	
+  $(document).ready(function() { });
   </script>
 
   <!--[if lt IE 7 ]>

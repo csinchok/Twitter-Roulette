@@ -12,7 +12,7 @@ def logout_view(request, template_name='roulette/logout.html'):
 
 def home(request, template_name='roulette/home.html'):
     this_round = Round.objects.filter(round_end__gte=datetime.datetime.now())[0]
-    bullets = Bullet.objects.filter(roulette_round=this_round).order_by("-date_submitted")[:10]
+    bullets = Bullet.objects.filter(roulette_round=this_round).order_by("-date_submitted").reverse()[:10]
     for bullet in bullets:
         votes = Vote.objects.filter(bullet=bullet, user=request.user)
         if votes.count() == 1:
