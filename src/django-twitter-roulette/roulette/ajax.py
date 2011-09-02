@@ -2,6 +2,28 @@ from django.utils import simplejson
 from dajaxice.decorators import dajaxice_register
 import datetime
 from models import *
+from django.core import serializers
+
+@dajaxice_register
+def getfucked_latest_from(request,from_id=None):
+    try:
+        if not request.user.is_authenticated():
+            return simplejson.dumps({'error': 'Please log in first.'})
+        else:
+			this_round = Round.objects.filter(round_end__gte=datetime.datetime.now())[0]
+			if from_id == None: 
+				from_id=0
+			bullets = Bullet.objects.filter(roulette_round=this_round).filter(id__gt=from_id).order_by("-date_submitted")[:10]
+			
+			realBullets = []
+			for bullet in bullets:
+				realBullets.append({ 'pk':bullet.id, 'user': bullet.user.username, 'tweet': bullet.tweet, 'score': bullet.score() })
+			data = simplejson.dumps(realBullets)
+			
+			return data
+    except Exception as e:
+    	print(e)
+    	return simplejson.dumps({'error': e.message})
 
 @dajaxice_register
 def submit_bullet(request, bullet):
