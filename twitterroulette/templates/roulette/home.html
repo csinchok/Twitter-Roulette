@@ -2,25 +2,6 @@
 
 {% block content %}
 
-{% for bullet in bullets %}
-	<!--
-	<div class="submitted-bullet" rel="{{bullet.id}}">
-		<div class="roulette-text-submitted-vote voted-{{bullet.voted}}">
-			<div class="arrow-up"></div>
-			<div class="vote-count">{{bullet.score}}</div>
-			<div class="arrow-down"></div>
-		</div>
-		<div class="roulette-text-submitted">
-			{{bullet.tweet}}
-		</div>
-		<div class="roulette-text-submitted-author">
-			<span>submitted by <strong>@{{bullet.user.username}}</strong></span>
-			<img src="http://api.twitter.com/1/users/profile_image?screen_name={{bullet.user.username}}&amp;size=mini" width="20px" height="20px" />
-		</div>
-	</div>
-	-->
-{% endfor %}
-
 <div class="submitted-bullet template" rel="" style="display: none;">
 	<div class="roulette-text-submitted-vote">
 		<div class="arrow-up"></div>
