@@ -11,7 +11,7 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
+  <title>social roulette</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -34,6 +34,11 @@
 
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
   <script src="{{MEDIA_URL}}js/libs/modernizr-1.7.min.js"></script>
+  
+  <!-- begin dajaxice -->
+  {% load dajaxice_templatetags %}
+  {% dajaxice_js_import %}
+  <!-- end dajaxice -->
 
 </head>
 
@@ -50,7 +55,7 @@
 		{% if user.is_authenticated %}
 		<div id="roulette-text-area-title-text" class="grid_6 omega">
 			<div id="twitter-submit-edit">
-				<h2>Submit Tweet for Twitter Roulette</h2>
+				<h2>Submit Tweet for Social Roulette</h2>
 				<textarea id="roulette-tweet-box-editor"></textarea>
 			</div>
 			<div id="twitter-text-submit">
@@ -95,19 +100,10 @@
   <script src="{{MEDIA_URL}}js/script.js"></script>
   <!-- end scripts-->
 
-  <!-- begin dajaxice -->
-  {% load dajaxice_templatetags %}
-  {% dajaxice_js_import %}
-  <!-- end dajaxice -->
-
   <script type="text/javascript" src="{{MEDIA_URL}}js/mylibs/jquery.countdown/jquery.countdown.js"></script>
 
-  <script type="text/javascript">
-  	$(document).ready(function() {
-		setTimeout("$('div.error').fadeOut('slow');",4000);
-		$('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
-	});
-	
+  <script>
+  $('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
   </script>
 
   <!--[if lt IE 7 ]>

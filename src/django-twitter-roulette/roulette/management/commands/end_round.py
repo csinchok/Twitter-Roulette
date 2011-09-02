@@ -2,8 +2,10 @@ from django.core.management.base import BaseCommand, CommandError
 from roulette.models import *
 from django.db.models import Sum
 from random import choice
+from django.conf import settings
 
-import csv
+import urlparse
+import tweepy
 
 class Command(BaseCommand):
     args = ''
@@ -24,3 +26,12 @@ class Command(BaseCommand):
         
         bullet_of_destiny = choice(magazine)
         print('bullet of destiny: %s' % bullet_of_destiny.tweet)
+        
+        victim = User.objects.filter(social_auth__provider__contains='twitter').order_by('?')[0]
+        
+        auth = tweepy.auth.OAuthHandler(settings.TWITTER_CONSUMER_KEY, settings.TWITTER_CONSUMER_SECRET)
+        access_token = urlparse.parse_qs(victim.social_auth.filter(provider='twitter')[0].extra_data['access_token'])        
+        
+        auth.set_access_token(access_token['oauth_token'][0], access_token['oauth_token_secret'][0])
+        api = tweepy.API(auth)
+        api.update_status(bullet_of_destiny.tweet)

@@ -12,7 +12,7 @@ class Migration(SchemaMigration):
         db.create_table('roulette_round', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('minimum_players', self.gf('django.db.models.fields.IntegerField')(default=25)),
-            ('round_end', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2011, 9, 1, 9, 58, 45, 605306), blank=True)),
+            ('round_end', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2011, 9, 2, 19, 55, 17, 356716), blank=True)),
         ))
         db.send_create_signal('roulette', ['Round'])
 
@@ -22,6 +22,7 @@ class Migration(SchemaMigration):
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
             ('tweet', self.gf('django.db.models.fields.CharField')(max_length=140)),
             ('roulette_round', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['roulette.Round'])),
+            ('date_submitted', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2011, 9, 1, 19, 55, 17, 357828), blank=True)),
         ))
         db.send_create_signal('roulette', ['Bullet'])
 
@@ -30,7 +31,7 @@ class Migration(SchemaMigration):
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
             ('bullet', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['roulette.Bullet'])),
-            ('value', self.gf('django.db.models.fields.BooleanField')(default=True)),
+            ('value', self.gf('django.db.models.fields.IntegerField')(default=1)),
         ))
         db.send_create_signal('roulette', ['Vote'])
 
@@ -86,6 +87,7 @@ class Migration(SchemaMigration):
         },
         'roulette.bullet': {
             'Meta': {'object_name': 'Bullet'},
+            'date_submitted': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2011, 9, 1, 19, 55, 17, 357828)', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'roulette_round': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['roulette.Round']"}),
             'tweet': ('django.db.models.fields.CharField', [], {'max_length': '140'}),
@@ -95,14 +97,14 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Round'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'minimum_players': ('django.db.models.fields.IntegerField', [], {'default': '25'}),
-            'round_end': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2011, 9, 1, 9, 58, 45, 605306)', 'blank': 'True'})
+            'round_end': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2011, 9, 2, 19, 55, 17, 356716)', 'blank': 'True'})
         },
         'roulette.vote': {
             'Meta': {'object_name': 'Vote'},
             'bullet': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['roulette.Bullet']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"}),
-            'value': ('django.db.models.fields.BooleanField', [], {'default': 'True'})
+            'value': ('django.db.models.fields.IntegerField', [], {'default': '1'})
         }
     }
 

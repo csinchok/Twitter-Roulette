@@ -115,6 +115,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.static",
+    "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
     "social_auth.context_processors.social_auth_by_type_backends"
 )
@@ -152,6 +153,11 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'dajaxice': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
