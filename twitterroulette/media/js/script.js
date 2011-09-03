@@ -62,7 +62,34 @@ function latest_fucked(bullets){
 	}
 }
 
+function check_cherry_and_guide(){
+	var cherry_popped = $.cookie('cherry_popped');
+	if( cherry_popped == undefined ){
+		guiders.createGuider({
+			buttons: [{name: "Close"},{name: "Next"}],
+			description: "Welcome to social roulette, it looks like this is your first time here, so let us explain how this works. Click next for the guided tour, or close to quit and get started.",
+			id: "first",
+			next: "second",
+			overlay: true,
+			title: "Welcome to social roulette!"
+		}).show();
+		
+		guiders.createGuider({
+			attachTo: "#twitter-submit-edit",
+			buttons: [{name: "Close"}],
+			description: "Load a bullet into the gun, this is your one chance per game, so  make it good.",
+			id: "second",
+			position: 9,
+			title: "Step 1: Load a bullet"
+		});
+		
+		$.cookie('cherry_popped',true, {expires : 365} );
+	}
+}
+
 $(document).ready(function(){
+  check_cherry_and_guide();
+
   Dajaxice.roulette.getfucked_latest_from(latest_fucked,{'from_id' : 0});
   
   $("#roulette-tweet-box-editor").keyup(function() {

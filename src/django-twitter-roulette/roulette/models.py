@@ -62,7 +62,7 @@ class Player(User):
         this_round = Round.objects.filter(round_end__gte=datetime.datetime.now())[0]
         try:
             total_votes = Vote.objects.filter(bullet__roulette_round=this_round).count()
-            my_bullet_score = self.bullet_set.get(roulette_round=this_round)[0].score()
+            my_bullet_score = self.bullet_set.filter(roulette_round=this_round)[0].score()
             avg_bullet_score = this_round.bullet_set.aggregate(Avg('vote'))['vote__avg']
             if (avg_bullet_score is None):
                 avg_bullet_score = 0

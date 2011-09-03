@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="{{MEDIA_URL}}css/960.css">
   <link rel="stylesheet" href="{{MEDIA_URL}}css/roulette.css">
   <link rel="stylesheet" href="{{MEDIA_URL}}js/mylibs/jquery.countdown/jquery.countdown.css"> 
+  <link rel="stylesheet" href="{{MEDIA_URL}}js/mylibs/Guiders-JS/guiders-1.1.2.css"> 
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
@@ -71,7 +72,9 @@
 			<div id="characters-remaining">140</div>
 		</div>
 		{% else %}
+			<div id="twitter-logon">
 			<a href="/login/twitter/" class="grid_6 omega"><img id="login-button" src="{{MEDIA_URL}}img/sign-in-with-twitter-l.png" alt="sign in with twitter" /></a>
+			</div>
 		{% endif %}
 		{% endblock %}
     </header>
@@ -101,11 +104,13 @@
   <!-- end scripts-->
 
   <script type="text/javascript" src="{{MEDIA_URL}}js/mylibs/jquery.countdown/jquery.countdown.js"></script>
+  <script type="text/javascript" src="{{MEDIA_URL}}js/mylibs/Guiders-JS/guiders-1.1.2.js"></script>
+  <script type="text/javascript" src="{{MEDIA_URL}}js/mylibs/jquery-cookie/jquery.cookie.js"></script>
 
   <script>
   $('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
   </script>
-
+  
   <!--[if lt IE 7 ]>
     <script src="{{MEDIA_URL}}js/libs/dd_belatedpng.js"></script>
     <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
