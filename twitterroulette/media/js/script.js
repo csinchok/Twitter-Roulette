@@ -88,8 +88,7 @@ function check_cherry_and_guide(){
 }
 
 $(document).ready(function(){
-  check_cherry_and_guide();
-
+  
   Dajaxice.roulette.getfucked_latest_from(latest_fucked,{'from_id' : 0});
   
   $("#roulette-tweet-box-editor").keyup(function() {

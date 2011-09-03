@@ -111,6 +111,12 @@
   $('#countdown').countdown({until: new Date('{{this_round.round_end|date:"F j, Y G:i:s"}}'), compact: true, format: 'HMS', description: ''});
   </script>
   
+  {% if user.is_authenticated %}
+  <script>
+  check_cherry_and_guide();
+  </script>
+  {% endif %}
+  
   <!--[if lt IE 7 ]>
     <script src="{{MEDIA_URL}}js/libs/dd_belatedpng.js"></script>
     <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
